@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Pawbie - Klaudia Warmus</title>
+    <meta name="description" content="This is my HTML5 boilerplate.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="160x160" href="img/Logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon32nofill.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon16nofill.png">
+    <link rel="stylesheet" href="https://use.typekit.net/kmo0ymm.css">
+    <link rel="stylesheet" href="style/screen.css">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"
+        integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script/app.js"></script>
+    <script src="script/datahandler.js"></script>
+</head>
+
+<body>
+    <header class="o-row">
+        <div class="o-container">
+            <div class="c-header">
+                <div class="c-header__logo">
+                    <h1 class="c-logo">
+                        <a href="../../index.html">
+                            <svg class="c-logo__symbol" xmlns="http://www.w3.org/2000/svg" width="151.998"
+                                height="63.261" viewBox="0 0 150 60">
+                                <g id="Pawbie2" transform="translate(-45.002 -12.739)">
+                                    <g id="PAW" transform="translate(24.39 17.994) rotate(-20)">
+                                        <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="7" cy="9.5" rx="7" ry="9.5"
+                                            transform="translate(10 32.788) rotate(-20)" fill="#ffb3d6" />
+                                        <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="7.5" cy="10.5" rx="7.5"
+                                            ry="10.5" transform="matrix(0.996, -0.087, 0.087, 0.996, 23.79, 15.103)"
+                                            fill="#ffb3d6" />
+                                        <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="7.5" cy="10.5" rx="7.5"
+                                            ry="10.5" transform="matrix(0.996, 0.087, -0.087, 0.996, 41.83, 13.764)"
+                                            fill="#ffb3d6" />
+                                        <ellipse id="Ellipse_4" data-name="Ellipse 4" cx="7" cy="9.5" rx="7" ry="9.5"
+                                            transform="translate(57.498 28) rotate(20)" fill="#ffb3d6" />
+                                        <path id="Path_1" data-name="Path 1"
+                                            d="M10.56,3.553c5.409-3.748,8.5-4.389,14.074-.408s9.631,11,9.631,16.975-2.834,6.629-7.22,7.176-6.162-5.173-9.817-4.748-5.146,3.868-8.577,4.484S4.55,27.423,3,25.61a10.028,10.028,0,0,1-1.152-4.238c0-1.659,1.055-6.875,1.522-7.557C3.367,13.816,5.15,7.3,10.56,3.553Z"
+                                            transform="translate(21.945 39.093)" fill="#ffb3d6" />
+                                    </g>
+                                    <text id="Pawbie" transform="translate(75 59)" fill="#4d4549" font-size="40"
+                                        font-family="matt-b">
+                                        <tspan x="0" y="0">Pawbie</tspan>
+                                    </text>
+                                </g>
+                            </svg>
+                        </a>
+                    </h1>
+                </div>
+                <div class="c-header__nav">
+                    <nav class="c-nav">
+                        <ul class="o-list c-nav__list">
+                            <li class="c-nav__item"><a href="foodsettings.html" class="c-link-cta">Food settings</a>
+                            </li>
+                            <li class="c-nav__item"><a href="watersettings.html" class="c-link-cta">Water
+                                    settings</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="o-row o-row--md">
+        <div class="o-container">
+            <div class="o-layout o-layout--align-center o-layout--row-reverse">
+                <div class="o-layout__item u-2-of-5-bp4">
+                    <div class="js-chart-water" id="WaterChart"></div>
+                    <div class="data-info">
+                        <p class="c-lead--md">Last time my pet drank: <b><span class="js-time-water"></span></b></p>
+                        <input class="c-link-cta js-fill-water" type="button" value="Water now!" />
+                    </div>
+                </div>
+                <div class="o-layout__item u-2-of-5-bp4">
+                    <div class="js-chart-food" id="FoodChart"></div>
+                    <div class="data-info">
+                        <p class="c-lead--md">Last time my pet ate: <b><span class="js-time-food"></span></b></p>
+                        <input class="c-link-cta js-fill-food" type="button" value="Food now!" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="o-row o-row--md">
+        <div class="o-container">
+            <div class="o-layout o-layout--align-center o-layout--row-reverse">
+                <div class="o-layout__item u-1-of-2-bp4">
+                    <div class="data-info-table">
+                        <table class="js-water">
+                            <caption class="first-row">Current water settings</caption>
+                            <tr>
+                                <th>Hour</th>
+                                <th>Quantity</th>
+                            </tr>
+                            <tr>
+                                <td>9:00</td>
+                                <td>30ml</td>
+                            </tr>
+                            <tr>
+                                <td>15:00</td>
+                                <td>30ml</td>
+                            </tr>
+                            <tr>
+                                <td>21:00</td>
+                                <td>30ml</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="o-layout__item u-1-of-2-bp4">
+                    <div class="data-info-table">
+                        <table class="js-food">
+                            <caption class="first-row">Current food settings</caption>
+                            <tr>
+                                <th>Hour</th>
+                                <th>Quantity</th>
+                            </tr>
+                            <tr>
+                                <td>9:00</td>
+                                <td>40g</td>
+                            </tr>
+                            <tr>
+                                <td>15:00</td>
+                                <td>40g</td>
+                            </tr>
+                            <tr>
+                                <td>21:00</td>
+                                <td>40g</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="o-row">
+        <div class="o-container">
+            <div class="o-layout o-layout__item current-data">
+                <h1 class="c-lead c-lead--lg">There is now: </h1>
+                <ul>
+                    <li class="c-lead c-lead--md"><b><span class="js-bowl-water"></span>ml</b> water in the bowl</li>
+                    <li class="c-lead c-lead--md"><b><span class="js-bowl-food"></span>g</b> food in the bowl</li>
+                    <li class="c-lead c-lead--md"><b><span class="js-tank-water"></span></b> water in the tank</li>
+                </ul>
+            </div>
+        </div>
+        <div class="o-layout o-layout__item">
+            <svg class="js-shutdown" xmlns="http://www.w3.org/2000/svg" width="67" height="75.5" viewBox="0 0 67 75.5">
+                <g id="Group_1" data-name="Group 1" transform="translate(-100.5 -94)">
+                    <path id="Path_6" data-name="Path 6"
+                        d="M48.483,6.3c.542.412,1.341,1.09,2.19,1.884a31.147,31.147,0,0,1,2.559,2.748c.393.472.774.961,1.317,1.713A30.084,30.084,0,0,1,30,60c-.166,0-.331,0-.812-.011A29.957,29.957,0,0,1,3.475,16.038,30.737,30.737,0,0,1,12.128,5.947"
+                        transform="translate(104 106)" fill="none" stroke="#1a1718" stroke-linecap="round"
+                        stroke-width="7" />
+                    <path id="Path_3" data-name="Path 3" d="M110.5,105.4" fill="none" stroke="#707070"
+                        stroke-width="1" />
+                    <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(129 94)" fill="#1a1718"
+                        stroke="#1a1718" stroke-width="1">
+                        <rect width="10" height="41" rx="5" stroke="none" />
+                        <rect x="0.5" y="0.5" width="9" height="40" rx="4.5" fill="none" />
+                    </g>
+                </g>
+            </svg>
+
+        </div>
+    </section>
+</body>
+
+</html>
